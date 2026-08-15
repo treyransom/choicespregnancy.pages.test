@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choices | You're Offline</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9fafb;
+            color: #4b5563;
+            padding: 24px;
+            text-align: center;
+        }
+        .offline-container {
+            max-width: 440px;
+        }
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2ea3f2 0%, #4ecdc4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            color: white;
+        }
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 1.75rem;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #6b7280;
+        }
+        .offline-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #2ea3f2 0%, #4ecdc4 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .offline-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 163, 242, 0.4);
+        }
+        .offline-phone svg {
+            width: 22px;
+            height: 22px;
+        }
+        .offline-retry {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 2px solid #d1d5db;
+            background: white;
+            border-radius: 12px;
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .offline-retry:hover {
+            border-color: #2ea3f2;
+            color: #2ea3f2;
+        }
+        .offline-address {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        .offline-address strong {
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">♥</div>
+        <h1>You're Offline</h1>
+        <p>It looks like you've lost your internet connection. Don't worry — you can still reach us directly.</p>
+
+        <a href="tel:7705351245" class="offline-phone">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            Call 770-535-1245
+        </a>
+
+        <br><br>
+
+        <button class="offline-retry" onclick="window.location.reload()">Try Again</button>
+
+        <div class="offline-address">
+            <strong>Visit Us</strong><br>
+            225 Forrest Avenue, Gainesville, GA 30501<br>
+            Mon–Thu: 9am–4pm
+        </div>
+    </div>
+</body>
+</html>

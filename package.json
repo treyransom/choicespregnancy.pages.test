@@ -1,0 +1,20 @@
+{
+  "name": "choices-web-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "python3 -m http.server 8080",
+    "sync": "./sync-www.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/cli": "^8.0.2",
+    "@capacitor/core": "^8.0.2",
+    "@capacitor/ios": "^8.0.2"
+  }
+}

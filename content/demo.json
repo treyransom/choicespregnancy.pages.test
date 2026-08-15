@@ -1,0 +1,20 @@
+{
+  "phone": "770-535-1245",
+  "show_crisis_banner": true,
+  "crisis_color": "",
+  "hero_style": { "align": "default", "size": "1", "effect": "none" },
+  "crisis_text_en": "Need to talk now?",
+  "crisis_text_es": "¿Necesitas hablar ahora?",
+  "hero_image": "images/choices-office.webp",
+  "hero_overlay": 70,
+  "hero_badge_en": "100% Free & Confidential",
+  "hero_badge_es": "100% Gratis y Confidencial",
+  "hero_line1_en": "You're Not Alone.",
+  "hero_line1_es": "No Estás Sola.",
+  "hero_line2_en": "We're Here For You.",
+  "hero_line2_es": "Estamos Aquí Para Ti.",
+  "hero_subtitle_en": "Get the answers you need in a safe, judgment-free environment. Free pregnancy tests, ultrasounds, and support in Gainesville, GA.",
+  "hero_subtitle_es": "Obtén las respuestas que necesitas en un ambiente seguro y sin juicios. Pruebas de embarazo, ultrasonidos y apoyo gratuitos en Gainesville, GA.",
+  "cta_schedule_en": "Schedule Free Appointment",
+  "cta_schedule_es": "Agendar Cita Gratis"
+}

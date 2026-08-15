@@ -1,0 +1,9 @@
+{
+  "color_primary": "#2ea3f2",
+  "color_secondary": "#4ecdc4",
+  "color_accent": "#ff6b6b",
+  "font_display": "Playfair Display",
+  "font_body": "Inter",
+  "corners": "rounded",
+  "animations": "full"
+}

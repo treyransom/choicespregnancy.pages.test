@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choices Pregnancy Care Center - Free confidential pregnancy tests, ultrasounds, and support services in Gainesville, GA">
+    <title>Choices Pregnancy Care Center | Gainesville, GA</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#2ea3f2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Choices">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/webp" href="icons/choices-logo-color.webp">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scroll-progress"></div>
+
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <span class="loader-icon">♥</span>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Minimal Crisis Banner -->
+    <div class="crisis-banner" id="crisisBanner">
+        <div class="container">
+            <span data-en="Need to talk now?" data-es="¿Necesitas hablar ahora?">Need to talk now?</span>
+            <a href="tel:7705351245" class="crisis-link">770-535-1245</a>
+            <button class="crisis-close" id="crisisClose">×</button>
+        </div>
+    </div>
+
+    <!-- Navigation with integrated language toggle -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="icons/choices-logo-color.webp" alt="Choices Pregnancy Care Center" class="logo-img">
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="mobile-menu-logo"><a href="#" class="mobile-logo"><img src="icons/choices-logo-color.webp" alt="Choices" style="height:40px"></a></li>
+                <li class="nav-dropdown">
+                    <a href="about.html" data-en="About" data-es="Nosotros">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Who We Are</a></li>
+                        <li><a href="first-visit.html">Your First Visit</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </li>
+                <li><a href="partners/" data-en="Get Involved" data-es="Involúcrate">Get Involved</a></li>
+                <li class="nav-dropdown">
+                    <a href="partners/events.html" data-en="Events" data-es="Eventos">Events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="partners/gala.html">Annual Gala</a></li>
+                        <li><a href="partners/baby-bottle.html">Baby Bottle Campaign</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="support-people.html" data-en="Stories and Support" data-es="Historias y Apoyo">Stories and Support <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="support-people.html">For Support People</a></li>
+                        <li><a href="telling-someone.html">Telling Someone</a></li>
+                        <li><a href="post-abortion-support.html">Post-Abortion Support</a></li>
+                    </ul>
+                </li>
+                <li class="nav-donate-item"><a href="partners/" data-en="Donate" data-es="Donar">Donate</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+                <button class="nav-icon-btn" id="a11yToggle" aria-label="Accessibility options" title="Accessibility options">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"/><path d="M12 6v6m0 0l-4 8m4-8l4 8M6 10h12"/></svg>
+                </button>
+                <span class="status-badge" id="navStatusBadge"></span>
+                <a href="partners/" class="nav-donate" data-en="Donate" data-es="Donar">Donate</a>
+                <a href="#" class="nav-cta" id="scheduleBtn" data-en="Schedule" data-es="Agendar">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Accessibility Toolbar -->
+    <div class="a11y-toolbar" id="a11yToolbar">
+        <div class="a11y-toolbar-header">
+            <h4>Accessibility</h4>
+            <button class="a11y-toolbar-close" id="a11yClose">&times;</button>
+        </div>
+        <div class="a11y-toolbar-body">
+            <div class="a11y-option">
+                <span>Font Size</span>
+                <div class="a11y-font-controls">
+                    <button class="a11y-font-btn" id="fontDecrease">A-</button>
+                    <button class="a11y-font-btn" id="fontReset">A</button>
+                    <button class="a11y-font-btn" id="fontIncrease">A+</button>
+                </div>
+            </div>
+            <div class="a11y-option">
+                <span>High Contrast</span>
+                <button class="a11y-toggle-switch" id="highContrastToggle" role="switch" aria-checked="false">
+                    <span class="a11y-switch-track"><span class="a11y-switch-thumb"></span></span>
+                </button>
+            </div>
+            <div class="a11y-option">
+                <span>Reading Guide</span>
+                <button class="a11y-toggle-switch" id="readingGuideToggle" role="switch" aria-checked="false">
+                    <span class="a11y-switch-track"><span class="a11y-switch-thumb"></span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading Guide Line -->
+    <div class="reading-guide-line" id="readingGuideLine"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="sms:7705351245&body=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services." class="fab fab-text" aria-label="Text us" title="Text us">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12zM7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+        </a>
+        <a href="tel:7705351245" class="fab fab-call" aria-label="Call us" title="Call us">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+        <button class="fab fab-chat" id="chatToggle" aria-label="Open chat" title="Chat with us">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+        </button>
+    </div>
+
+    <!-- Text Us Widget -->
+    <div class="text-widget" id="textWidget">
+        <div class="text-widget-bubble" id="textWidgetBubble">
+            <button class="text-widget-close" id="textWidgetClose" aria-label="Close">&times;</button>
+            <div class="text-widget-content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <div>
+                    <strong data-en="Prefer to text?" data-es="Prefieres enviar mensaje?">Prefer to text?</strong>
+                    <span data-en="Text us at 770-535-1245" data-es="Envianos un mensaje al 770-535-1245">Text us at 770-535-1245</span>
+                </div>
+                <a href="sms:7705351245&body=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services." class="text-widget-btn" data-en="Text Now" data-es="Enviar Mensaje">Text Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">C</div>
+                    <div>
+                        <h4 data-en="Chat with us" data-es="Chatea con nosotros">Chat with us</h4>
+                        <span class="chat-status" data-en="We reply within minutes" data-es="Respondemos en minutos">We reply within minutes</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        <p data-en="Hi! 👋 How can we help you today?" data-es="¡Hola! 👋 ¿Cómo podemos ayudarte hoy?">Hi! 👋 How can we help you today?</p>
+                    </div>
+                </div>
+                <div class="chat-quick-replies">
+                    <button class="quick-reply" data-message="I need a pregnancy test">Pregnancy test</button>
+                    <button class="quick-reply" data-message="What services do you offer?">Services info</button>
+                    <button class="quick-reply" data-message="I want to schedule an appointment">Schedule visit</button>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                <button class="chat-send" id="chatSend">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div class="modal-overlay" id="scheduleModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            <div class="modal-content">
+                <h2 data-en="Schedule Your Visit" data-es="Agenda tu Visita">Schedule Your Visit</h2>
+                <p data-en="Free & confidential. We'll confirm within 24 hours." data-es="Gratis y confidencial. Confirmaremos dentro de 24 horas.">Free & confidential. We'll confirm within 24 hours.</p>
+                <form class="appointment-form" id="appointmentForm">
+                    <div class="form-group">
+                        <label for="appointmentType" data-en="What do you need?" data-es="¿Qué necesitas?">What do you need?</label>
+                        <select id="appointmentType" name="appointmentType" required>
+                            <option value="">Select a service</option>
+                            <option value="pregnancy-test">Pregnancy Test</option>
+                            <option value="ultrasound">Ultrasound</option>
+                            <option value="options-counseling">Options Counseling</option>
+                            <option value="sti-testing">STI Testing</option>
+                            <option value="bright-course">Bright Course</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="appointmentDate">Preferred Date</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Preferred Time</label>
+                            <select id="appointmentTime" name="appointmentTime" required>
+                                <option value="">Select time</option>
+                                <option value="9:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentName">Your Name</label>
+                        <input type="text" id="appointmentName" name="appointmentName" required placeholder="First name is fine">
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentPhone">Phone Number</label>
+                        <input type="tel" id="appointmentPhone" name="appointmentPhone" required placeholder="(770) 555-0123">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Request Appointment</button>
+                </form>
+                <div class="modal-footer">
+                    <p data-en="Prefer to call? <a href='tel:7705351245'>770-535-1245</a>" data-es="¿Prefieres llamar? <a href='tel:7705351245'>770-535-1245</a>">Prefer to call? <a href="tel:7705351245">770-535-1245</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" style="min-height:100vh">
+        <div class="hero-bg">
+
+            <img src="images/choices-office.webp" alt="Choices Pregnancy Care Center building in Gainesville, GA">
+            <div class="hero-video-overlay"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge" data-en="100% Free & Confidential" data-es="100% Gratis y Confidencial">100% Free & Confidential</span>
+            <h1 data-en="You're Not Alone.<br><span class='highlight'>We're Here For You.</span>" data-es="No Estás Sola.<br><span class='highlight'>Estamos Aquí Para Ti.</span>">You're Not Alone.<br><span class="highlight">We're Here For You.</span></h1>
+            <p class="hero-subtitle" data-en="Get the answers you need in a safe, judgment-free environment. Free pregnancy tests, ultrasounds, and support in Gainesville, GA." data-es="Obtén las respuestas que necesitas en un ambiente seguro y sin juicios. Pruebas de embarazo, ultrasonidos y apoyo gratuitos en Gainesville, GA.">Get the answers you need in a safe, judgment-free environment. Free pregnancy tests, ultrasounds, and support in Gainesville, GA.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary btn-lg" id="heroScheduleBtn">
+                    <span data-en="Schedule Free Appointment" data-es="Agendar Cita Gratis">Schedule Free Appointment</span>
+                </a>
+                <a href="tel:7705351245" class="btn btn-secondary btn-lg">
+                    <span data-en="Call 770-535-1245" data-es="Llamar 770-535-1245">Call 770-535-1245</span>
+                </a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span data-en="Same-Day Appointments" data-es="Citas el Mismo Día">Same-Day Appointments</span>
+                </div>
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span data-en="No Insurance Needed" data-es="Sin Seguro Necesario">No Insurance Needed</span>
+                </div>
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span data-en="No ID Required" data-es="Sin ID Requerida">No ID Required</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Intake Flow -->
+    <section class="intake-flow" id="intake-flow">
+        <div class="container">
+            <div class="intake-header">
+                <h2 class="line-reveal" data-en="What Brings You<br><span class='highlight'>Here Today?</span>" data-es="Que Te Trae<br><span class='highlight'>Aqui Hoy?</span>">What Brings You<br><span class="highlight">Here Today?</span></h2>
+                <p data-en="Select what fits your situation and we'll guide you to the right resources." data-es="Selecciona lo que se ajuste a tu situacion y te guiaremos a los recursos adecuados.">Select what fits your situation and we'll guide you to the right resources.</p>
+            </div>
+            <div class="intake-options">
+                <button class="intake-card" data-intake="pregnant">
+                    <span class="intake-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                    </span>
+                    <strong data-en="I think I might be pregnant" data-es="Creo que podria estar embarazada">I think I might be pregnant</strong>
+                    <span class="intake-desc" data-en="Free pregnancy tests with immediate results" data-es="Pruebas de embarazo gratis con resultados inmediatos">Free pregnancy tests with immediate results</span>
+                </button>
+                <button class="intake-card" data-intake="sti">
+                    <span class="intake-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                    </span>
+                    <strong data-en="I need STI testing" data-es="Necesito pruebas de ITS">I need STI testing</strong>
+                    <span class="intake-desc" data-en="Confidential testing and treatment referrals" data-es="Pruebas confidenciales y referencias de tratamiento">Confidential testing and treatment referrals</span>
+                </button>
+                <button class="intake-card" data-intake="support">
+                    <span class="intake-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <strong data-en="I'm supporting someone I care about" data-es="Estoy apoyando a alguien que me importa">I'm supporting someone I care about</strong>
+                    <span class="intake-desc" data-en="Guidance for partners, parents, and friends" data-es="Guia para parejas, padres y amigos">Guidance for partners, parents, and friends</span>
+                </button>
+            </div>
+            <!-- Intake result panels -->
+            <div class="intake-result" id="intake-result-pregnant" style="display:none">
+                <div class="intake-result-content">
+                    <h3 data-en="We can help you get answers" data-es="Podemos ayudarte a obtener respuestas">We can help you get answers</h3>
+                    <p data-en="Our free, lab-quality pregnancy tests give you results in minutes. No appointment necessary for walk-ins, but scheduling guarantees your time slot." data-es="Nuestras pruebas de embarazo gratuitas te dan resultados en minutos. No necesitas cita para visitas sin cita, pero agendar garantiza tu horario.">Our free, lab-quality pregnancy tests give you results in minutes. No appointment necessary for walk-ins, but scheduling guarantees your time slot.</p>
+                    <div class="intake-result-actions">
+                        <a href="#" class="btn btn-primary schedule-trigger" data-en="Schedule Free Test" data-es="Agendar Prueba Gratis">Schedule Free Test</a>
+                        <a href="#quiz" class="btn btn-outline" data-en="Take Self-Assessment" data-es="Realizar Autoevaluacion">Take Self-Assessment</a>
+                    </div>
+                </div>
+            </div>
+            <div class="intake-result" id="intake-result-sti" style="display:none">
+                <div class="intake-result-content">
+                    <h3 data-en="Get tested confidentially" data-es="Hazte la prueba confidencialmente">Get tested confidentially</h3>
+                    <p data-en="We offer free, confidential STI testing in a safe, judgment-free environment. Early detection is key to your health." data-es="Ofrecemos pruebas de ITS gratuitas y confidenciales en un ambiente seguro y sin juicios.">We offer free, confidential STI testing in a safe, judgment-free environment. Early detection is key to your health.</p>
+                    <div class="intake-result-actions">
+                        <a href="#" class="btn btn-primary schedule-trigger" data-en="Schedule STI Test" data-es="Agendar Prueba de ITS">Schedule STI Test</a>
+                        <a href="sexual-health.html" class="btn btn-outline" data-en="Learn About STIs" data-es="Aprende Sobre ITS">Learn About STIs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="intake-result" id="intake-result-support" style="display:none">
+                <div class="intake-result-content">
+                    <h3 data-en="Thank you for being there" data-es="Gracias por estar ahi">Thank you for being there</h3>
+                    <p data-en="How you show up right now matters more than you know. We have specific guidance for partners, parents, and friends, plus confidential consultations just for support people." data-es="Como te presentes ahora importa mas de lo que sabes. Tenemos guias especificas para parejas, padres y amigos.">How you show up right now matters more than you know. We have specific guidance for partners, parents, and friends, plus confidential consultations just for support people.</p>
+                    <div class="intake-result-actions">
+                        <a href="support-people.html" class="btn btn-primary" data-en="Get Guidance" data-es="Obtener Guia">Get Guidance</a>
+                        <a href="tel:7705351245" class="btn btn-outline" data-en="Call for Advice" data-es="Llamar para Consejos">Call for Advice</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-number" data-target="15" data-suffix="+">0</span>
+                    <span class="trust-label">Years Serving Gainesville</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number" data-target="10" data-suffix="K+">0</span>
+                    <span class="trust-label">Women Helped</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number" data-target="100" data-suffix="%">0</span>
+                    <span class="trust-label">Confidential</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number" data-prefix="$" data-target="0" data-suffix="">$0</span>
+                    <span class="trust-label">Cost for Services</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Video Intro Section -->
+    <section class="video-intro">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Meet Our Team</span>
+                <h2 class="cinematic-heading">See Why Women Trust<br><span class="highlight">Choices</span></h2>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-placeholder" style="background-image: url('images/choices-office.webp');">
+                    <div class="video-overlay"></div>
+                    <button class="play-button" aria-label="Play video">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="31" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.15)"/>
+                            <polygon points="26,20 26,44 46,32" fill="white"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <p class="video-description">Take a quick tour of our center and hear from our team about the care you'll receive.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-cinematic" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2 class="cinematic-heading">Comprehensive Care,<br><span class="highlight">Completely Free</span></h2>
+            </div>
+        </div>
+        <div class="ministry-grid">
+            <a href="services.html" class="ministry-card">
+                <div class="ministry-img" style="background-image:url('https://images.unsplash.com/photo-1647549228195-301269c33265?w=900&h=600&fit=crop')"></div>
+                <div class="ministry-content">
+                    <h3>Free Pregnancy Tests</h3>
+                    <p>Lab-quality testing with 99% accuracy. Results in minutes.</p>
+                </div>
+            </a>
+            <a href="ultrasound-guide.html" class="ministry-card">
+                <div class="ministry-img" style="background-image:url('https://plus.unsplash.com/premium_photo-1661606400554-a2055d50ee08?w=900&h=600&fit=crop')"></div>
+                <div class="ministry-content">
+                    <h3>Free Ultrasounds</h3>
+                    <p>Limited obstetric ultrasounds by RDMS-certified sonographers.</p>
+                </div>
+            </a>
+            <a href="options.html" class="ministry-card">
+                <div class="ministry-img" style="background-image:url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=900&h=600&fit=crop')"></div>
+                <div class="ministry-content">
+                    <h3>Options Counseling</h3>
+                    <p>Non-judgmental education about all your options.</p>
+                </div>
+            </a>
+            <a href="sexual-health.html" class="ministry-card">
+                <div class="ministry-img" style="background-image:url('https://images.unsplash.com/photo-1637000310020-fc920135682b?w=900&h=600&fit=crop')"></div>
+                <div class="ministry-content">
+                    <h3>STI Testing</h3>
+                    <p>Confidential testing. Free for pregnant women.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Self-Assessment Quiz -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Self-Check" data-es="Autoevaluacion">Self-Check</span>
+                <h2 class="cinematic-heading" data-en="Could I Be<br><span class='highlight'>Pregnant?</span>" data-es="Podria Estar<br><span class='highlight'>Embarazada?</span>">Could I Be<br><span class="highlight">Pregnant?</span></h2>
+                <p data-en="This quick self-assessment can help you understand your symptoms. It is not a medical diagnosis." data-es="Esta autoevaluacion rapida puede ayudarte a entender tus sintomas. No es un diagnostico medico.">This quick self-assessment can help you understand your symptoms. It is not a medical diagnosis.</p>
+            </div>
+            <div class="quiz-card">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="quizProgressBar"></div>
+                </div>
+                <div class="quiz-body" id="quizBody">
+                    <div class="quiz-question active" data-q="0">
+                        <span class="quiz-step">Question 1 of 8</span>
+                        <h3 data-en="Have you been sexually active in the last 3 months?" data-es="Has tenido relaciones sexuales en los ultimos 3 meses?">Have you been sexually active in the last 3 months?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="4" data-flag="sexually-active" data-en="Yes" data-es="Si">Yes</button>
+                            <button class="quiz-answer" data-score="0" data-flag="not-active" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="1">
+                        <span class="quiz-step">Question 2 of 8</span>
+                        <h3 data-en="Have you missed a period or is it late?" data-es="Has perdido un periodo o esta atrasado?">Have you missed a period or is it late?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="4" data-en="Yes, I've missed it" data-es="Si, lo he perdido">Yes, I've missed it</button>
+                            <button class="quiz-answer" data-score="2" data-en="It's late by a few days" data-es="Esta atrasado por unos dias">It's late by a few days</button>
+                            <button class="quiz-answer" data-score="1" data-en="I'm not sure / irregular" data-es="No estoy segura / irregular">I'm not sure / irregular</button>
+                            <button class="quiz-answer" data-score="0" data-en="No, it's on time" data-es="No, esta a tiempo">No, it's on time</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="2">
+                        <span class="quiz-step">Question 3 of 8</span>
+                        <h3 data-en="Were you using birth control consistently?" data-es="Estabas usando anticonceptivos consistentemente?">Were you using birth control consistently?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="0" data-en="Yes, every time" data-es="Si, cada vez">Yes, every time</button>
+                            <button class="quiz-answer" data-score="2" data-en="Sometimes / not sure" data-es="A veces / no estoy segura">Sometimes / not sure</button>
+                            <button class="quiz-answer" data-score="3" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="3">
+                        <span class="quiz-step">Question 4 of 8</span>
+                        <h3 data-en="Are you experiencing nausea or morning sickness?" data-es="Estas experimentando nauseas?">Are you experiencing nausea or morning sickness?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="3" data-en="Yes, frequently" data-es="Si, frecuentemente">Yes, frequently</button>
+                            <button class="quiz-answer" data-score="1" data-en="Occasionally" data-es="Ocasionalmente">Occasionally</button>
+                            <button class="quiz-answer" data-score="0" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="4">
+                        <span class="quiz-step">Question 5 of 8</span>
+                        <h3 data-en="Have you noticed breast tenderness, swelling, or changes?" data-es="Has notado sensibilidad, hinchazon o cambios en los senos?">Have you noticed breast tenderness, swelling, or changes?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="2" data-en="Yes" data-es="Si">Yes</button>
+                            <button class="quiz-answer" data-score="0" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="5">
+                        <span class="quiz-step">Question 6 of 8</span>
+                        <h3 data-en="Are you feeling unusually tired or fatigued?" data-es="Te sientes inusualmente cansada o fatigada?">Are you feeling unusually tired or fatigued?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="2" data-en="Yes, very fatigued" data-es="Si, muy fatigada">Yes, very fatigued</button>
+                            <button class="quiz-answer" data-score="1" data-en="A little more than usual" data-es="Un poco mas de lo normal">A little more than usual</button>
+                            <button class="quiz-answer" data-score="0" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="6">
+                        <span class="quiz-step">Question 7 of 8</span>
+                        <h3 data-en="Have you experienced food aversions, unusual cravings, or sensitivity to smells?" data-es="Has experimentado aversion a comidas, antojos inusuales o sensibilidad a olores?">Have you experienced food aversions, unusual cravings, or sensitivity to smells?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="2" data-en="Yes" data-es="Si">Yes</button>
+                            <button class="quiz-answer" data-score="1" data-en="Maybe / a little" data-es="Quizas / un poco">Maybe / a little</button>
+                            <button class="quiz-answer" data-score="0" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-question" data-q="7">
+                        <span class="quiz-step">Question 8 of 8</span>
+                        <h3 data-en="Are you experiencing frequent urination, mood swings, or light spotting?" data-es="Estas experimentando miccion frecuente, cambios de humor o manchado leve?">Are you experiencing frequent urination, mood swings, or light spotting?</h3>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-score="2" data-en="Yes, one or more" data-es="Si, uno o mas">Yes, one or more</button>
+                            <button class="quiz-answer" data-score="0" data-en="No" data-es="No">No</button>
+                        </div>
+                    </div>
+                    <div class="quiz-result" id="quizResult" style="display:none">
+                        <div class="quiz-result-icon" id="quizResultIcon"></div>
+                        <h3 id="quizResultTitle"></h3>
+                        <p id="quizResultText"></p>
+                        <div class="quiz-result-actions">
+                            <a href="#" class="btn btn-primary schedule-trigger" data-en="Schedule Free Test" data-es="Agendar Prueba Gratis">Schedule Free Test</a>
+                            <button class="btn btn-outline" id="quizRestart" data-en="Retake Quiz" data-es="Reiniciar">Retake Quiz</button>
+                        </div>
+                        <p class="quiz-disclaimer" data-en="This quiz is not a medical diagnosis. Only a pregnancy test can confirm pregnancy. All our tests are free and confidential." data-es="Este cuestionario no es un diagnostico medico. Solo una prueba de embarazo puede confirmar un embarazo. Todas nuestras pruebas son gratuitas y confidenciales.">This quiz is not a medical diagnosis. Only a pregnancy test can confirm pregnancy. All our tests are free and confidential.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / What to Expect -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Your First Visit</span>
+                <h2 class="line-reveal cinematic-heading">What to Expect<br><span class="highlight">When You Visit</span></h2>
+                <p data-en="No surprises. Here's exactly what happens." data-es="Sin sorpresas. Esto es exactamente lo que sucede.">No surprises. Here's exactly what happens.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 data-en="Warm Welcome" data-es="Bienvenida Cálida">Warm Welcome</h3>
+                    <p data-en="Our friendly staff greets you. Come alone or bring someone for support." data-es="Nuestro personal amigable te saluda. Ven sola o trae a alguien para apoyo.">Our friendly staff greets you. Come alone or bring someone for support.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 data-en="Brief Form" data-es="Formulario Breve">Brief Form</h3>
+                    <p data-en="Fill out a short, confidential form. No ID or insurance needed." data-es="Completa un formulario corto y confidencial. Sin ID ni seguro necesario.">Fill out a short, confidential form. No ID or insurance needed.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 data-en="Private Consultation" data-es="Consulta Privada">Private Consultation</h3>
+                    <p data-en="Meet one-on-one with a caring advocate. Ask anything—nothing is off limits." data-es="Reúnete individualmente con una defensora. Pregunta lo que quieras—nada está fuera de límites.">Meet one-on-one with a caring advocate. Ask anything—nothing is off limits.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 data-en="Testing & Support" data-es="Pruebas y Apoyo">Testing & Support</h3>
+                    <p data-en="Get results in minutes. We'll discuss your options at your pace—never pressure." data-es="Obtén resultados en minutos. Discutiremos tus opciones a tu ritmo—nunca presión.">Get results in minutes. We'll discuss your options at your pace—never pressure.</p>
+                </div>
+            </div>
+            <div class="visit-info">
+                <div class="info-item">
+                    <span class="info-icon">⏱️</span>
+                    <span data-en="30-45 minutes" data-es="30-45 minutos">30-45 minutes</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🚗</span>
+                    <span data-en="Free parking" data-es="Estacionamiento gratis">Free parking</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🔒</span>
+                    <span data-en="Discreet entrance" data-es="Entrada discreta">Discreet entrance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews -->
+    <section class="google-reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What People Are Saying</span>
+                <h2 class="cinematic-heading">Real Reviews From<br><span class="highlight">Real People</span></h2>
+            </div>
+            <div class="reviews-rating-bar">
+                <span class="reviews-score">4.9</span>
+                <span class="reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="reviews-source">on Google</span>
+                <a href="https://www.google.com/maps/place/Choices+Pregnancy+Care+Center/@34.2978,-83.8247,17z/" target="_blank" rel="noopener" class="reviews-see-all">See All Reviews &rarr;</a>
+            </div>
+            <div class="reviews-carousel"><div class="reviews-track">
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;I was terrified when I first called, but the moment I walked in, the staff put me completely at ease. They took the time to listen and never once made me feel judged. I left with a clear head and real support.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">S</div>
+                        <div class="review-author">
+                            <span class="review-name">Sarah M.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;The counselors here are genuinely kind people. They answered every question I had without pressure or agenda. I felt like they actually cared about me as a person, not just another appointment.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">J</div>
+                        <div class="review-author">
+                            <span class="review-name">Jennifer T.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;The parenting classes through Bright Course were a game changer for me. I went from feeling completely unprepared to confident that I could handle this. The instructors are wonderful.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author">
+                            <span class="review-name">Maria L.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;I cannot say enough good things about this place. They helped me with everything from the ultrasound to connecting me with community resources. I honestly don't know what I would have done without them.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">A</div>
+                        <div class="review-author">
+                            <span class="review-name">Ashley R.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;The sonographer who did my ultrasound was so patient and caring. She explained everything on the screen and made sure I was comfortable the whole time. Such a professional and compassionate team.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">E</div>
+                        <div class="review-author">
+                            <span class="review-name">Emily K.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-quote">&ldquo;As a first-time mom with no family nearby, Choices became my support system. They gave me baby supplies, connected me with a mentor, and checked in on me even after my son was born. Truly life-changing.&rdquo;</p>
+                    <div class="review-footer">
+                        <div class="review-avatar">D</div>
+                        <div class="review-author">
+                            <span class="review-name">Danielle W.</span>
+                            <span class="review-via">via Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- Partners/Affiliates Section -->
+    <section class="partners-bar">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Trusted Partners" data-es="Socios de Confianza">Trusted Partners</span>
+                <h2 class="cinematic-heading" data-en="Affiliated &amp; Accredited" data-es="Afiliados y Acreditados">Affiliated &amp; Accredited</h2>
+            </div>
+            <div class="partners-marquee"><div class="partners-track">
+                <a href="https://www.heartbeatinternational.org" target="_blank" rel="noopener" class="partner-badge" title="Heartbeat International">
+                    <img src="https://www.heartbeatinternational.org/images/logo.png" alt="Heartbeat International" class="partner-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <span class="partner-name" style="display:none">Heartbeat International</span>
+                    <span class="partner-label">Heartbeat International</span>
+                </a>
+                <a href="https://www.care-net.org" target="_blank" rel="noopener" class="partner-badge" title="Care Net">
+                    <img src="https://www.care-net.org/hubfs/Care%20Net%20Logo.svg" alt="Care Net" class="partner-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <span class="partner-name" style="display:none">Care Net</span>
+                    <span class="partner-label">Care Net</span>
+                </a>
+                <a href="https://nifla.org" target="_blank" rel="noopener" class="partner-badge" title="NIFLA - National Institute of Family and Life Advocates">
+                    <img src="https://nifla.org/wp-content/uploads/2020/01/NIFLA-logo.png" alt="NIFLA" class="partner-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <span class="partner-name" style="display:none">NIFLA</span>
+                    <span class="partner-label">NIFLA</span>
+                </a>
+                <a href="https://www.anopendooradoption.org" target="_blank" rel="noopener" class="partner-badge" title="An Open Door Adoption Agency">
+                    <img src="https://www.anopendooradoption.org/wp-content/uploads/2019/06/logo.png" alt="An Open Door" class="partner-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <span class="partner-name" style="display:none">An Open Door</span>
+                    <span class="partner-label">An Open Door</span>
+                </a>
+                <a href="https://www.lifelinechild.org" target="_blank" rel="noopener" class="partner-badge" title="Lifeline Children's Services">
+                    <img src="https://www.lifelinechild.org/wp-content/uploads/lifeline-logo.svg" alt="Lifeline Children's Services" class="partner-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <span class="partner-name" style="display:none">Lifeline</span>
+                    <span class="partner-label">Lifeline Children's Services</span>
+                </a>
+            </div></div>
+        </div>
+    </section>
+
+    <!-- Events Calendar Section -->
+    <section class="events-calendar" id="events">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Upcoming Events" data-es="Próximos Eventos">Upcoming Events</span>
+                <h2 class="cinematic-heading" data-en="What's Happening<br><span class='highlight'>At Choices</span>" data-es="Qué Está Pasando<br><span class='highlight'>En Choices</span>">What's Happening<br><span class="highlight">At Choices</span></h2>
+            </div>
+            <div class="events-scatter">
+                <div class="event-card-scatter" data-x="-180%" data-y="18%" data-rotate="-10">
+                    <div class="event-card-bg" style="background:linear-gradient(135deg, #2ea3f2, #1a8fd8)"></div>
+                    <div class="event-card-overlay">
+                        <h4>Bright Course Orientation</h4>
+                        <p>APR 1 &bull; 10:00 AM</p>
+                        <span class="event-card-btn">Learn More &rarr;</span>
+                    </div>
+                    <div class="event-card-face">
+                        <span class="event-card-date">APR<br><strong>1</strong></span>
+                        <span class="event-card-title">Bright Course</span>
+                    </div>
+                </div>
+                <div class="event-card-scatter" data-x="-90%" data-y="5%" data-rotate="-5">
+                    <div class="event-card-bg" style="background:linear-gradient(135deg, #4ecdc4, #2ea3f2)"></div>
+                    <div class="event-card-overlay">
+                        <h4>Free STI Testing Day</h4>
+                        <p>APR 5 &bull; 9 AM – 3 PM</p>
+                        <span class="event-card-btn">Learn More &rarr;</span>
+                    </div>
+                    <div class="event-card-face">
+                        <span class="event-card-date">APR<br><strong>5</strong></span>
+                        <span class="event-card-title">STI Testing</span>
+                    </div>
+                </div>
+                <div class="event-card-scatter" data-x="0" data-y="0" data-rotate="0">
+                    <div class="event-card-bg" style="background:linear-gradient(135deg, #1a8fd8, #4ecdc4)"></div>
+                    <div class="event-card-overlay">
+                        <h4>Baby Shower Giveaway</h4>
+                        <p>APR 12 &bull; 1:00 PM</p>
+                        <span class="event-card-btn">Learn More &rarr;</span>
+                    </div>
+                    <div class="event-card-face">
+                        <span class="event-card-date">APR<br><strong>12</strong></span>
+                        <span class="event-card-title">Baby Shower</span>
+                    </div>
+                </div>
+                <div class="event-card-scatter" data-x="90%" data-y="5%" data-rotate="5">
+                    <div class="event-card-bg" style="background:linear-gradient(135deg, #4ecdc4, #1a8fd8)"></div>
+                    <div class="event-card-overlay">
+                        <h4>Parenting Workshop</h4>
+                        <p>APR 17 &bull; 6:30 PM</p>
+                        <span class="event-card-btn">Learn More &rarr;</span>
+                    </div>
+                    <div class="event-card-face">
+                        <span class="event-card-date">APR<br><strong>17</strong></span>
+                        <span class="event-card-title">Workshop</span>
+                    </div>
+                </div>
+            </div>
+            <div class="events-cta">
+                <a href="#" class="btn btn-outline" data-en="View All Events" data-es="Ver Todos los Eventos">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations" id="locations">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Locations" data-es="Ubicaciones">Locations</span>
+                <h2 class="cinematic-heading" data-en="Find Us<br><span class='highlight'>Near You</span>" data-es="Encuéntranos<br><span class='highlight'>Cerca de Ti</span>">Find Us<br><span class="highlight">Near You</span></h2>
+                <p data-en="Visit our main office or catch our mobile unit in the community." data-es="Visita nuestra oficina principal o encuentra nuestra unidad móvil en la comunidad.">Visit our main office or catch our mobile unit in the community.</p>
+            </div>
+
+            <div class="location-tabs">
+                <button class="location-tab active" data-loc-tab="office">
+                    <span class="tab-icon">🏢</span>
+                    <span data-en="Main Office" data-es="Oficina Principal">Main Office</span>
+                </button>
+                <button class="location-tab" data-loc-tab="mobile">
+                    <span class="tab-icon">🚐</span>
+                    <span data-en="Mobile Unit" data-es="Unidad Móvil">Mobile Unit</span>
+                </button>
+            </div>
+
+            <div class="location-panels">
+                <!-- Main Office Panel -->
+                <div class="location-panel active" id="panel-office">
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <span class="contact-icon">📍</span>
+                                    <div>
+                                        <strong data-en="Visit Us" data-es="Visítanos">Visit Us</strong>
+                                        <p>225 Forrest Avenue<br>Gainesville, GA 30501</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <div>
+                                        <strong data-en="Call or Text" data-es="Llama o Envía Mensaje">Call or Text</strong>
+                                        <p><a href="tel:7705351245">770-535-1245</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🕐</span>
+                                    <div>
+                                        <strong data-en="Hours" data-es="Horario">Hours</strong>
+                                        <p data-en="Mon-Thurs: 9am-4pm" data-es="Lun-Jue: 9am-4pm">Mon-Thurs: 9am-4pm</p>
+                                        <span class="status-badge status-badge-contact" id="contactStatusBadge"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/choicespregnancycare/" target="_blank" rel="noopener" aria-label="Facebook">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                </a>
+                                <a href="https://www.instagram.com/choicescenter/" target="_blank" rel="noopener" aria-label="Instagram">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-map-area">
+                            <div class="contact-map">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3299.8876547!2d-83.8247!3d34.2978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5f3c0a8b8b8b9%3A0x0!2s225%20Forrest%20Ave%2C%20Gainesville%2C%20GA%2030501!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                                    width="100%"
+                                    height="300"
+                                    style="border:0; border-radius: 16px;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    title="Choices Pregnancy Care Center Location">
+                                </iframe>
+                            </div>
+                            <div class="directions-bar">
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=225+Forrest+Ave+Gainesville+GA+30501" target="_blank" rel="noopener" class="directions-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                                    <span data-en="Get Directions" data-es="Obtener Direcciones">Get Directions</span>
+                                </a>
+                                <a href="https://maps.apple.com/?daddr=225+Forrest+Ave+Gainesville+GA+30501" target="_blank" rel="noopener" class="directions-btn directions-btn-alt">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <span>Apple Maps</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Unit Panel -->
+                <div class="location-panel" id="panel-mobile">
+                    <div class="mobile-unit-intro">
+                        <p data-en="Our mobile unit brings free testing and resources directly to your community. Check our upcoming stops below or view the weekly schedule." data-es="Nuestra unidad móvil lleva pruebas gratuitas y recursos directamente a tu comunidad. Consulta nuestras próximas paradas o el horario semanal.">Our mobile unit brings free testing and resources directly to your community. Check our upcoming stops below or view the weekly schedule.</p>
+                    </div>
+
+                    <h3 class="mobile-section-title" data-en="Upcoming Stops" data-es="Próximas Paradas">Upcoming Stops</h3>
+                    <div class="mobile-stops-grid" id="mobileStopsGrid">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+
+                    <h3 class="mobile-section-title" data-en="Weekly Schedule" data-es="Horario Semanal">Weekly Schedule</h3>
+                    <div class="mobile-schedule-table-wrap">
+                        <table class="mobile-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th data-en="Day" data-es="Día">Day</th>
+                                    <th data-en="Location" data-es="Ubicación">Location</th>
+                                    <th data-en="Address" data-es="Dirección">Address</th>
+                                    <th data-en="Time" data-es="Hora">Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Monday" data-es="Lunes">Monday</td>
+                                    <td data-en="Hall County Library" data-es="Biblioteca del Condado Hall">Hall County Library</td>
+                                    <td>127 Main St NW, Gainesville</td>
+                                    <td>10:00 AM – 2:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Wednesday" data-es="Miércoles">Wednesday</td>
+                                    <td data-en="Lanier Technical College" data-es="Colegio Técnico Lanier">Lanier Technical College</td>
+                                    <td>2535 Lanier Tech Dr, Gainesville</td>
+                                    <td>9:00 AM – 1:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Thursday" data-es="Jueves">Thursday</td>
+                                    <td data-en="Gainesville Housing Authority" data-es="Autoridad de Vivienda de Gainesville">Gainesville Housing Authority</td>
+                                    <td>750 Pearl Nix Pkwy, Gainesville</td>
+                                    <td>10:00 AM – 2:00 PM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMS Opt-In Section -->
+    <section class="sms-optin">
+        <div class="container">
+            <div class="sms-optin-content">
+                <h2 data-en="Stay Connected" data-es="Mantente Conectada">Stay Connected</h2>
+                <p data-en="Text CHOICES to 770-535-1245 to receive updates and resources." data-es="Envía CHOICES al 770-535-1245 para recibir actualizaciones y recursos.">Text CHOICES to 770-535-1245 to receive updates and resources.</p>
+                <a href="sms:7705351245&body=CHOICES" class="sms-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Send Text Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Take the Next Step?" data-es="¿Lista para el Siguiente Paso?">Ready to Take the Next Step?</h2>
+                <p data-en="You don't have to face this alone. Free, confidential help is just a call away." data-es="No tienes que enfrentar esto sola. Ayuda gratuita y confidencial a solo una llamada.">You don't have to face this alone. Free, confidential help is just a call away.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white schedule-trigger">Schedule Appointment</a>
+                    <a href="tel:7705351245" class="btn btn-outline-white">Call 770-535-1245</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stories Section -->
+    <section class="impact-stories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lives Changed</span>
+                <h2 class="cinematic-heading">Stories of<br><span class="highlight">Hope &amp; Healing</span></h2>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-quote-icon">&ldquo;</div>
+                    <p class="story-text">I walked in terrified after seeing a positive test, convinced I had no options. The team at Choices listened without judgment, gave me an ultrasound, and helped me see a path forward. They connected me with resources I never knew existed. My daughter is two now, and I can't imagine life without her.</p>
+                    <span class="story-attribution">&mdash; A Choices Client, 2024</span>
+                </div>
+                <div class="story-card">
+                    <div class="story-quote-icon">&ldquo;</div>
+                    <p class="story-text">The Bright Course program completely changed my confidence as a new mom. I earned baby supplies while learning about parenting, budgeting, and healthy relationships. The mentors genuinely cared about me and my baby. I graduated feeling prepared and empowered instead of overwhelmed.</p>
+                    <span class="story-attribution">&mdash; A Bright Course Graduate, 2024</span>
+                </div>
+                <div class="story-card">
+                    <div class="story-quote-icon">&ldquo;</div>
+                    <p class="story-text">For years I carried guilt and grief after my abortion. I thought no one would understand. The post-abortion support group at Choices gave me a safe place to finally process what I'd been through. I found healing I didn't think was possible and the freedom to forgive myself.</p>
+                    <span class="story-attribution">&mdash; A Choices Client, 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support" id="donate">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Support Our Mission" data-es="Apoya Nuestra Misión">Support Our Mission</span>
+                <h2 class="cinematic-heading" data-en="Help Us Help<br><span class='highlight'>More Women</span>" data-es="Ayúdanos a Ayudar<br><span class='highlight'>a Más Mujeres</span>">Help Us Help<br><span class="highlight">More Women</span></h2>
+                <p data-en="Every service we provide is free because of generous supporters like you." data-es="Cada servicio que proporcionamos es gratuito gracias a donantes generosos como tú.">Every service we provide is free because of generous supporters like you.</p>
+            </div>
+
+            <div class="impact-stats-row" id="impactStatsRow">
+                <div class="impact-stat">
+                    <div class="impact-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <span class="impact-stat-number" data-target="3842" data-suffix="+">0</span>
+                    <span class="impact-stat-label" data-en="Free Tests Provided" data-es="Pruebas Gratis Proporcionadas">Free Tests Provided</span>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <span class="impact-stat-number" data-target="1247" data-suffix="">0</span>
+                    <span class="impact-stat-label" data-en="Women Helped This Year" data-es="Mujeres Ayudadas Este Año">Women Helped This Year</span>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                    </div>
+                    <span class="impact-stat-number" data-target="680" data-suffix="+">0</span>
+                    <span class="impact-stat-label" data-en="Ultrasounds Funded" data-es="Ultrasonidos Financiados">Ultrasounds Funded</span>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <span class="impact-stat-number" data-target="215" data-suffix="">0</span>
+                    <span class="impact-stat-label" data-en="Bright Course Graduates" data-es="Graduadas de Bright Course">Bright Course Graduates</span>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:48px;">
+                <a href="partners/" class="btn btn-primary btn-lg" data-en="Donate Now" data-es="Donar Ahora">Donate Now</a>
+                <p style="margin-top:16px; color:var(--gray-500); font-size:0.9rem;" data-en="Visit our Partners page to give online, volunteer, or learn about upcoming events." data-es="Visita nuestra página de Partners para donar, ser voluntario o conocer próximos eventos.">Visit our Partners page to give online, volunteer, or learn about upcoming events.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="icons/choices-logo-color.webp" alt="Choices Pregnancy Care Center" class="logo-img">
+                    </a>
+                    <p>Free, confidential pregnancy services in Gainesville, GA.</p>
+                    <p class="footer-badges">501(c)(3) Nonprofit • HIPAA Compliant</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="sexual-health.html">Sexual Health</a></li>
+                        <li><a href="options.html">Your Options</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="support-people.html">For Support People</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Pregnancy Tests</a></li>
+                        <li><a href="ultrasound-guide.html">Ultrasounds</a></li>
+                        <li><a href="sexual-health.html">Sexual Health</a></li>
+                        <li><a href="options.html">Options Counseling</a></li>
+                        <li><a href="bright-course.html">Bright Course</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Locations</h4>
+                    <p>225 Forrest Avenue<br>Gainesville, GA 30501</p>
+                    <p><a href="tel:7705351245">770-535-1245</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/choicespregnancycare" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/choicescenter/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Choices Pregnancy Care Center. All services are confidential and free.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/TAWK_PROPERTY_ID/TAWK_WIDGET_ID';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script src="script.js"></script>
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js').catch(function() {});
+            });
+        }
+    </script>
+</body>
+</html>

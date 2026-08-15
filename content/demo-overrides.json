@@ -1,0 +1,10 @@
+{
+  "#navMenu > li:nth-of-type(8)": {
+    "styles": {
+      "fontSize": "16px"
+    }
+  },
+  "#navMenu > li:nth-of-type(8) > a": {
+    "animation": "fade"
+  }
+}

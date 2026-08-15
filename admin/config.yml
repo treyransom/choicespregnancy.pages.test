@@ -1,0 +1,100 @@
+# DEMO configuration — Decap CMS running against the local filesystem.
+# Requires `npx decap-server` (MODE=fs) running alongside the static server.
+backend:
+  name: git-gateway
+local_backend: true
+publish_mode: simple
+media_folder: images/uploads
+public_folder: /images/uploads
+site_url: http://localhost:8080/demo/
+
+collections:
+  - name: design
+    label: "Site Design"
+    files:
+      - name: theme
+        label: "Theme (colors, fonts, style)"
+        file: content/theme.json
+        description: Site-wide look and feel — applies to every page
+        fields:
+          - { label: "Primary Color", name: color_primary, widget: color, hint: "Buttons, links, highlights. Lighter/darker shades are derived automatically." }
+          - { label: "Secondary Color", name: color_secondary, widget: color, hint: "Gradient partner color (teal by default)" }
+          - { label: "Accent Color", name: color_accent, widget: color }
+          - label: "Heading Font"
+            name: font_display
+            widget: select
+            options: ["Playfair Display", "Lora", "Merriweather", "DM Serif Display", "Poppins"]
+          - label: "Body Font"
+            name: font_body
+            widget: select
+            options: ["Inter", "Poppins", "Nunito", "Source Sans 3", "Lato"]
+          - label: "Corner Style"
+            name: corners
+            widget: select
+            options:
+              - { label: "Rounded (current)", value: rounded }
+              - { label: "Softly rounded", value: soft }
+              - { label: "Square", value: square }
+          - label: "Animations"
+            name: animations
+            widget: select
+            options:
+              - { label: "Full (current)", value: "full" }
+              - { label: "Reduced", value: "reduced" }
+              - { label: "Off", value: "off" }
+            hint: "Reduced/Off also helps motion-sensitive visitors"
+
+  - name: pages
+    label: Pages
+    files:
+      - name: homepage
+        label: Homepage
+        file: content/demo.json
+        description: Hero section, crisis banner, and contact number (demo subset)
+        fields:
+          - { label: "Phone Number", name: phone, widget: string, hint: "Used in the crisis banner and the Call button" }
+          - { label: "Show Crisis Banner", name: show_crisis_banner, widget: boolean }
+          - { label: "Crisis Banner Color", name: crisis_color, widget: color, required: false, allowInput: true, hint: "Leave empty to keep the site default" }
+          - label: "Hero Style & Effects"
+            name: hero_style
+            widget: object
+            collapsed: true
+            fields:
+              - label: "Text Alignment"
+                name: align
+                widget: select
+                options:
+                  - { label: "Site default", value: "default" }
+                  - { label: "Left", value: "left" }
+                  - { label: "Centered", value: "center" }
+              - label: "Headline Size"
+                name: size
+                widget: select
+                options:
+                  - { label: "Smaller", value: "0.85" }
+                  - { label: "Normal (current)", value: "1" }
+                  - { label: "Large", value: "1.15" }
+                  - { label: "Extra Large", value: "1.3" }
+              - label: "Entrance Effect"
+                name: effect
+                widget: select
+                options:
+                  - { label: "None", value: "none" }
+                  - { label: "Fade in", value: "fade" }
+                  - { label: "Slide up", value: "slide-up" }
+                  - { label: "Zoom in", value: "zoom" }
+                hint: "Plays when the page loads"
+          - { label: "Crisis Banner Text (English)", name: crisis_text_en, widget: string }
+          - { label: "Crisis Banner Text (Spanish)", name: crisis_text_es, widget: string }
+          - { label: "Hero Background Image", name: hero_image, widget: image, hint: "Upload a new photo or pick from the library" }
+          - { label: "Hero Overlay Darkness", name: hero_overlay, widget: number, value_type: int, min: 0, max: 90, hint: "0 = no darkening, 90 = nearly black. Current site uses 70." }
+          - { label: "Hero Badge (English)", name: hero_badge_en, widget: string }
+          - { label: "Hero Badge (Spanish)", name: hero_badge_es, widget: string }
+          - { label: "Hero Headline Line 1 (English)", name: hero_line1_en, widget: string }
+          - { label: "Hero Headline Line 1 (Spanish)", name: hero_line1_es, widget: string }
+          - { label: "Hero Headline Line 2 — highlighted (English)", name: hero_line2_en, widget: string }
+          - { label: "Hero Headline Line 2 — highlighted (Spanish)", name: hero_line2_es, widget: string }
+          - { label: "Hero Subtitle (English)", name: hero_subtitle_en, widget: text }
+          - { label: "Hero Subtitle (Spanish)", name: hero_subtitle_es, widget: text }
+          - { label: "Schedule Button (English)", name: cta_schedule_en, widget: string }
+          - { label: "Schedule Button (Spanish)", name: cta_schedule_es, widget: string }

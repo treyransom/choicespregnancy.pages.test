@@ -1,0 +1,53 @@
+{
+  "name": "Choices Pregnancy Care Center",
+  "short_name": "Choices",
+  "description": "Free confidential pregnancy tests, ultrasounds, and support services in Gainesville, GA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2ea3f2",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["health", "medical"],
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Schedule Appointment",
+      "short_name": "Schedule",
+      "url": "/#services",
+      "description": "Book a free appointment"
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "url": "tel:7705351245",
+      "description": "Call Choices at 770-535-1245"
+    },
+    {
+      "name": "Locations",
+      "short_name": "Locations",
+      "url": "/#locations",
+      "description": "Find our office or mobile unit"
+    }
+  ]
+}
