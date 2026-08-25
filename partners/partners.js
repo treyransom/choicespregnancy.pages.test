@@ -15,7 +15,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initFloatingDonate();
     initBackToTop();
     initCampaignBanner();
+    initGivingBox();
 });
+
+
+// Legacy Builder giving box: amount + frequency selection (visual only —
+// the actual gift is completed on the EasyTithe giving page).
+function initGivingBox() {
+    document.querySelectorAll('.giving-amounts, .giving-frequency').forEach(function(group) {
+        group.addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn) return;
+            group.querySelectorAll('button').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+        });
+    });
+}
 
 
 // Upcoming event / campaign area on the landing page. The HTML holds a
