@@ -1,3 +1,4 @@
 node_modules/
 ios/DerivedData/
 .DS_Store
+.claude/settings.local.json

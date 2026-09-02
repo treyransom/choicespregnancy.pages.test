@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initIntakeFlow();
     initQuiz();
     initTextWidget();
+    initAnalyticsEvents();
 });
 
 // ===================================
@@ -1551,6 +1552,7 @@ function initQuiz() {
     }
 
     function showResult() {
+        trackEvent('quiz-completed');
         questions.forEach(q => q.classList.remove('active'));
         if (progressBar) progressBar.style.width = '100%';
 
@@ -1936,4 +1938,32 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCornerstoneEffects);
 } else {
     initCornerstoneEffects();
+}
+
+// ===================================
+// Analytics Events (Umami)
+// ===================================
+// Safe no-op when the analytics script is blocked or hasn't loaded.
+function trackEvent(name, data) {
+    if (typeof umami !== 'undefined' && umami.track) umami.track(name, data);
+}
+
+function initAnalyticsEvents() {
+    document.addEventListener('click', function(e) {
+        const el = e.target.closest('a, button');
+        if (!el) return;
+        const href = el.getAttribute('href') || '';
+
+        if (href.startsWith('tel:')) {
+            trackEvent('call-click', { number: href.slice(4) });
+        } else if (href.startsWith('sms:')) {
+            trackEvent('text-click');
+        } else if (href.includes('appointment.html') || el.id === 'scheduleBtn' || el.id === 'heroScheduleBtn' || el.classList.contains('schedule-trigger')) {
+            trackEvent('schedule-click');
+        } else if (el.id === 'chatToggle') {
+            trackEvent('chat-open');
+        } else if (el.classList.contains('lang-btn')) {
+            trackEvent('language-switch', { lang: el.dataset.lang });
+        }
+    });
 }
