@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initCampaignBanner();
     initGivingBox();
-    initAnalyticsEvents();
 });
 
 
@@ -361,45 +360,5 @@ function initNewsletterForm() {
                 btn.disabled = false;
             }, 3000);
         }, 1000);
-    });
-}
-
-// ===================================
-// Analytics Events (Umami)
-// ===================================
-// Safe no-op when the analytics script is blocked or hasn't loaded.
-function trackEvent(name, data) {
-    if (typeof umami !== 'undefined' && umami.track) umami.track(name, data);
-}
-
-// Amplify form ids (first URL segment) → readable event labels
-var AMPLIFY_FORMS = {
-    '1b1b7c0c': 'give',
-    '4a79819a': 'newsletter-signup',
-    'b57514af': 'volunteer-signup',
-    'c4b9778f': 'change-for-life',
-    '4e60bce0': 'vision-tour-signup',
-    'd801d016': 'book-a-speaker',
-    '6e608bfd': 'ed-meeting',
-    'b3e1a9a5': 'host-baby-shower',
-    '4c486452': 'baby-bottle'
-};
-
-function initAnalyticsEvents() {
-    document.addEventListener('click', function(e) {
-        var el = e.target.closest('a, button');
-        if (!el) return;
-        var href = el.getAttribute('href') || '';
-
-        if (href.indexOf('tel:') === 0) {
-            trackEvent('call-click');
-            return;
-        }
-        var m = href.match(/myamplify\.io\/App\/Form\/([a-f0-9]{8})/);
-        if (m) {
-            trackEvent('form-click', { form: AMPLIFY_FORMS[m[1]] || m[1] });
-        } else if (el.classList.contains('giving-amount')) {
-            trackEvent('giving-box-amount', { amount: el.dataset.amount });
-        }
     });
 }
