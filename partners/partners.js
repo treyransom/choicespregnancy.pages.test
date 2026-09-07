@@ -92,9 +92,24 @@ function initMobileMenu() {
         menu.querySelectorAll('.nav-dropdown.open').forEach(function(d) { d.classList.remove('open'); });
     }
 
+    function closeMenu() {
+        menu.classList.remove('open');
+        closeDropdowns();
+        document.body.style.overflow = '';
+    }
+
     toggle.addEventListener('click', function() {
-        menu.classList.toggle('open');
-        if (!menu.classList.contains('open')) closeDropdowns();
+        if (menu.classList.contains('open')) {
+            closeMenu();
+        } else {
+            menu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    // Tapping the dimmed backdrop (the menu's own ::before) closes the drawer
+    menu.addEventListener('click', function(e) {
+        if (e.target === menu) closeMenu();
     });
 
     // On mobile, the chevron expands the submenu; tapping the label navigates
@@ -108,25 +123,19 @@ function initMobileMenu() {
                 closeDropdowns();
                 if (!wasOpen) li.classList.add('open');
             } else {
-                menu.classList.remove('open');
+                closeMenu();
             }
         });
     });
 
     // Submenu links navigate and close the panel
     menu.querySelectorAll('.dropdown-menu a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            menu.classList.remove('open');
-            closeDropdowns();
-        });
+        link.addEventListener('click', closeMenu);
     });
 
     const closeBtn = menu.querySelector('.mobile-close');
     if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-            menu.classList.remove('open');
-            closeDropdowns();
-        });
+        closeBtn.addEventListener('click', closeMenu);
     }
 }
 

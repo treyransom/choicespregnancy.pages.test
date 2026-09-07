@@ -1729,29 +1729,51 @@ body.page-transition {
     .nav-menu { display: none; }
     .nav-toggle { display: flex; }
 
-    /* Mobile menu: dropdown panel that pops open below the navbar */
+    /* backdrop-filter would make the navbar the containing block for the
+       fixed drawer below, clipping it to the nav bar — disable it on mobile
+       (the 0.98-alpha white background is visually identical) */
+    .navbar { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+    /* Mobile menu: drawer that slides in from the right */
     .nav-menu.open {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        top: 0;
         right: 0;
+        bottom: 0;
+        left: auto;
+        width: min(320px, 85vw);
         background: var(--white);
-        border-top: 1px solid var(--gray-200);
-        box-shadow: var(--shadow-lg);
-        padding: 8px 0 12px;
-        max-height: 70vh;
+        box-shadow: var(--shadow-xl);
+        padding: 10px 0 24px;
         overflow-y: auto;
-        z-index: 999;
-        animation: menuDrop 0.22s ease;
+        z-index: 1001;
+        animation: menuSlide 0.25s ease;
     }
 
-    @keyframes menuDrop {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+    @keyframes menuSlide {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    /* Dim the page to the left of the drawer; tapping it closes the menu */
+    .nav-menu.open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: min(320px, 85vw);
+        background: rgba(22, 48, 63, 0.45);
+        animation: backdropFade 0.25s ease;
+    }
+
+    @keyframes backdropFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     .nav-menu.open > li { width: 100%; }
