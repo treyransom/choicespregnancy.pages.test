@@ -215,13 +215,25 @@ section {
     font-size: 1.125rem;
 }
 
+/* Both dimensions stay auto with max caps so the flex row can never
+   squeeze the logo out of its aspect ratio on narrow screens */
+.logo { flex-shrink: 1; min-width: 0; }
 .logo-img {
-    height: 68px;
     width: auto;
+    height: auto;
+    max-height: 68px;
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
-    .logo-img { height: 56px; }
+    .logo-img { max-height: 56px; }
+}
+
+/* On very small phones, drop the outline Volunteer button so the logo
+   and Give Now button both keep breathing room */
+@media (max-width: 430px) {
+    .nav-actions .nav-cta-outline { display: none; }
+    .logo-img { max-height: 48px; }
 }
 
 .nav-menu {
