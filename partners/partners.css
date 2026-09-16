@@ -1294,6 +1294,65 @@ ul.dropdown-menu::before {
     margin-bottom: 16px;
 }
 
+.faith-statements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 56px;
+}
+.faith-statement-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg, 16px);
+    padding: 32px 28px;
+    text-align: center;
+}
+.faith-statement-card .section-tag { display: inline-block; margin-bottom: 12px; }
+.faith-statement-card .mission-statement { margin: 0; }
+
+.faith-doc {
+    max-width: 780px;
+    margin: 0 auto;
+}
+.faith-doc h2 { margin-bottom: 24px; }
+.faith-doc h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin: 40px 0 12px;
+}
+.faith-doc p,
+.faith-beliefs li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--gray-600);
+    margin-bottom: 16px;
+}
+.faith-refs { font-size: 0.95rem !important; color: var(--gray-500) !important; margin-top: -6px; }
+.faith-beliefs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.faith-beliefs li {
+    position: relative;
+    padding-left: 28px;
+}
+.faith-beliefs li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0.75em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+@media (max-width: 768px) {
+    .faith-statements { grid-template-columns: 1fr; }
+}
+
 /* ===================================
    CTA Section
    =================================== */
