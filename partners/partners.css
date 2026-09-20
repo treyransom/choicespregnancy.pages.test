@@ -5,28 +5,32 @@
 
 /* --- CSS Variables & Reset --- */
 :root {
-    --primary: #4f96a6;
-    --primary-dark: #3f7e8d;
-    --primary-light: #7ab3c0;
-    --secondary: #4ecdc4;
-    --accent: #ff6b6b;
-    --navy: #1e3d51;
-    --navy-dark: #16303f;
-    --cream: #ece2d6;
-    --paper: #eef2f3;
+    /* Choices brand: logo blue #0082c8, logo green #c1d82f, logo gray #717171 */
+    --primary: #0082c8;
+    --primary-dark: #0069a3;
+    --primary-light: #5fb3e3;
+    --secondary: #c1d82f;
+    --accent: #c1d82f;
+    --green: #c1d82f;
+    --green-dark: #8fa41c;
+    --green-soft: #f3f7dc;
+    --navy: #0f3a5c;
+    --navy-dark: #0a2a44;
+    --cream: #f3f7dc;
+    --paper: #eef5fa;
     --white: #ffffff;
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
     --gray-200: #e5e7eb;
     --gray-300: #d1d5db;
     --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
+    --gray-500: #717171;
+    --gray-600: #5b5b5b;
+    --gray-700: #444444;
     --gray-800: #1f2937;
     --gray-900: #111827;
-    --gradient-primary: linear-gradient(135deg, #4f96a6 0%, #447e8f 100%);
-    --gradient-soft: linear-gradient(135deg, #e9f0f2 0%, #e6efee 100%);
+    --gradient-primary: linear-gradient(135deg, #0082c8 0%, #0069a3 100%);
+    --gradient-soft: linear-gradient(135deg, #e8f3fa 0%, #eef5e3 100%);
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --section-padding: 120px;
@@ -379,7 +383,7 @@ ul.dropdown-menu::before {
 .hero {
     padding: 210px 0 110px;
     background:
-        linear-gradient(100deg, rgba(22, 48, 63, 0.85) 0%, rgba(22, 48, 63, 0.6) 45%, rgba(22, 48, 63, 0.3) 100%),
+        linear-gradient(100deg, rgba(10, 42, 68, 0.85) 0%, rgba(10, 42, 68, 0.6) 45%, rgba(10, 42, 68, 0.3) 100%),
         url('../images/choices-office.webp') center/cover no-repeat;
     background-color: var(--navy);
     position: relative;
@@ -650,6 +654,8 @@ ul.dropdown-menu::before {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .give-card:hover {
@@ -697,7 +703,7 @@ ul.dropdown-menu::before {
     margin-bottom: 24px;
 }
 
-.give-card .btn { width: 100%; }
+.give-card .btn { width: 100%; margin-top: auto; }
 
 .trust-badges {
     display: flex;
@@ -857,7 +863,7 @@ ul.dropdown-menu::before {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(79, 150, 166, 0.15);
+    box-shadow: 0 0 0 3px rgba(0, 130, 200, 0.15);
 }
 
 .form-group textarea {
@@ -1294,6 +1300,47 @@ ul.dropdown-menu::before {
     margin-bottom: 16px;
 }
 
+.affiliate-heading {
+    text-align: center;
+    margin: 56px 0 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+}
+.affiliate-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    margin-top: 24px;
+}
+.affiliate-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 16px 24px;
+    min-height: 88px;
+    transition: var(--transition);
+}
+.affiliate-logo:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.affiliate-logo img { height: 48px; width: auto; max-width: 180px; object-fit: contain; }
+.affiliate-logo--carenet { background: #6ecbd2; border-color: #6ecbd2; }
+.affiliate-logo--carenet img { height: 40px; }
+.about-content .affiliate-logos { justify-content: flex-start; gap: 12px; }
+.about-content .affiliate-logo { padding: 12px 16px; min-height: 64px; }
+.about-content .affiliate-logo img { height: 36px; max-width: 150px; }
+.about-content .affiliate-logo--carenet img { height: 30px; }
+@media (max-width: 480px) {
+    .affiliate-logo { padding: 12px 16px; min-height: 72px; }
+    .affiliate-logo img { height: 40px; max-width: 150px; }
+}
+
 .faith-statements {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1347,7 +1394,7 @@ ul.dropdown-menu::before {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--primary);
+    background: var(--green);
 }
 @media (max-width: 768px) {
     .faith-statements { grid-template-columns: 1fr; }
@@ -1392,7 +1439,7 @@ ul.dropdown-menu::before {
 /* Hero with the family photo (placeholder image until client provides one) */
 .hero-family {
     background:
-        linear-gradient(100deg, rgba(22, 48, 63, 0.82) 0%, rgba(22, 48, 63, 0.55) 45%, rgba(22, 48, 63, 0.25) 100%),
+        linear-gradient(100deg, rgba(10, 42, 68, 0.82) 0%, rgba(10, 42, 68, 0.55) 45%, rgba(10, 42, 68, 0.25) 100%),
         url('../images/image-placeholder.svg') center/cover no-repeat;
     background-color: var(--navy);
 }
@@ -1699,7 +1746,7 @@ body.page-transition {
     font-size: 0.95rem;
     font-weight: 700;
     border-radius: 50px;
-    box-shadow: 0 4px 16px rgba(30, 61, 81, 0.25);
+    box-shadow: 0 4px 16px rgba(15, 58, 92, 0.25);
     cursor: pointer;
     transition: var(--transition);
     opacity: 0;
@@ -1715,7 +1762,7 @@ body.page-transition {
 
 .floating-donate:hover {
     transform: translateY(0) scale(1.08);
-    box-shadow: 0 6px 22px rgba(30, 61, 81, 0.3);
+    box-shadow: 0 6px 22px rgba(15, 58, 92, 0.3);
     color: var(--white);
 }
 
@@ -1838,7 +1885,7 @@ body.page-transition {
         bottom: 0;
         left: 0;
         right: min(320px, 85vw);
-        background: rgba(22, 48, 63, 0.45);
+        background: rgba(10, 42, 68, 0.45);
         animation: backdropFade 0.25s ease;
     }
 
@@ -2131,3 +2178,34 @@ body.page-transition {
 }
 .gi-tab:hover { background: rgba(255, 255, 255, 0.25); color: var(--white); }
 .gi-tab.active { background: var(--white); color: var(--navy); border-color: var(--white); }
+
+/* ===================================
+   Brand accents (logo green)
+   =================================== */
+.floating-donate { background: var(--green); color: var(--navy); }
+.floating-donate:hover { background: #d0e650; color: var(--navy); }
+.announcement-bar { border-bottom: 3px solid var(--green); }
+.section-tag { color: var(--green-dark); }
+.progress-section .section-tag { color: var(--green); }
+.give-card { border-top: 4px solid transparent; }
+.give-card:hover { border-top-color: var(--green); }
+.affiliation-badge { border-color: var(--gray-200); }
+.newsletter-band .newsletter-form button { background: var(--green); color: var(--navy); }
+.newsletter-band .newsletter-form button:hover { background: #d0e650; }
+.btn-white { color: var(--primary-dark); }
+
+.history-copy { max-width: 780px; margin: 0 auto; text-align: center; }
+.history-copy p { font-size: 1.05rem; line-height: 1.8; color: var(--gray-600); margin-bottom: 20px; }
+.history-copy .mission-statement { margin-top: 8px; }
+
+.contact-item a[href^="mailto:"] { color: var(--primary); font-weight: 600; }
+.contact-item a[href^="mailto:"]:hover { color: var(--primary-dark); text-decoration: underline; }
+
+/* Keep nav labels on one line at tablet/laptop widths */
+.nav-menu > li > a, .nav-cta, .nav-cta-outline { white-space: nowrap; }
+@media (max-width: 1300px) {
+    .nav-menu { gap: 20px; }
+    .nav-menu a { font-size: 0.9rem; }
+    .nav-actions { gap: 10px; }
+    .nav-cta, .nav-cta-outline { padding-left: 16px; padding-right: 16px; }
+}
